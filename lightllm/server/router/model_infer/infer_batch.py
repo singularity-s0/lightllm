@@ -19,6 +19,8 @@ class InferSamplingParams:
         temperature: float = 1.0,
         top_p: float = 1.0,
         top_k: int = -1,
+        ignore_eos: bool = False,
+        max_new_tokens: int = 16,
         vocab_size: int = -1,
     ) -> None:
         self.do_sample = do_sample
@@ -29,6 +31,8 @@ class InferSamplingParams:
         self.top_k = top_k
         if self.top_k == -1:
             self.top_k = vocab_size
+        self.ignore_eos = ignore_eos
+        self.max_new_tokens = max_new_tokens
         return
 
 
